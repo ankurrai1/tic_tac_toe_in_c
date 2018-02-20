@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 void insert_symbol(int,int,int);
+void validate_player_move(int,int,int);
 void show_turn(int);
 
 void get_player_move(int turn) {
@@ -11,7 +12,11 @@ void get_player_move(int turn) {
   scanf("%d%*c%d", &x, &y);
   x--;
   y--;
-  if(matrix[x][y] != 'X' && matrix[x][y] != 'O'){
+  validate_player_move(turn,x,y);
+}
+
+void validate_player_move(int turn,int x,int y){
+  if(matrix[x][y] == ' '){
     insert_symbol(turn,x,y);
   } else {
     printf("Invalid move, try again.\n");

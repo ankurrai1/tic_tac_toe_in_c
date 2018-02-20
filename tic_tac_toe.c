@@ -5,19 +5,19 @@ void show_game_result(char);
 void show_winner(char);
 
 int main(void){
-  char winner_symbol;
+  char game_result;
   printf(" Tic Tac Toe.\n");
-  winner_symbol=get_game_result();
-  show_game_result(winner_symbol);
+  game_result=get_game_result();
+  show_game_result(game_result);
   disp_matrix();
   return 0;
 }
 
-void show_game_result(char winner_symbol){
-  if (winner_symbol=='D') {
+void show_game_result(char game_result){
+  if (game_result=='D') {
     printf("Match Draw !\n");
   }else{
-    show_winner(winner_symbol);
+    show_winner(game_result);
   }
 }
 
