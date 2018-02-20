@@ -11,10 +11,10 @@ void init_matrix(void) {
 } 
 
 void disp_matrix(void) {
-  int t;
-  for(t=0; t<3; t++) {
-    printf(" %c | %c | %c ",matrix[t][0], matrix[t][1], matrix [t][2]);
-    if(t!=2){
+  int index;
+  for(index=0; index<3; index++) {
+    printf(" %c | %c | %c ",matrix[index][0], matrix[index][1], matrix[index][2]);
+    if(index!=2){
       printf("\n---|---|---\n");
     }
   }

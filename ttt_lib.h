@@ -5,5 +5,5 @@
   void init_matrix(void);
   void get_player_move(int);
   void disp_matrix(void);
-  char continue_game(void);
+  char get_game_result(void);
 #endif
