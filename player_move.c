@@ -1,42 +1,21 @@
 #include "ttt_lib.h"
 #include <stdio.h>
 
-void insert_symbol(int,int,int);
-void validate_player_move(int,int,int);
-void show_turn(int);
 
-void get_player_move(int turn) {
-  int x, y;
-  show_turn(turn);
-  printf("Enter X,Y coordinates for your move: ");
-  scanf("%d%*c%d", &x, &y);
-  x--;
-  y--;
-  validate_player_move(turn,x,y);
+int get_move(){
+  int move;
+  printf("enter your move \n");
+  scanf("%d",&move);
+  return move;
 }
 
-void validate_player_move(int turn,int x,int y){
-  if(matrix[x][y] == ' '){
-    insert_symbol(turn,x,y);
-  } else {
-    printf("Invalid move, try again.\n");
-    get_player_move(turn);
+int is_valid_move(int move,char* board){
+  if (board[move]==' ') {
+    return 1;
   }
+  return 0;
 }
 
-void insert_symbol(int turn,int x,int y) { 
-  if (turn%2==0) {
-    matrix[x][y] = 'X';
-  } else{
-    matrix[x][y] = 'O';;
-  }
-}
-
-void show_turn(int turn){
-  if (turn%2==0) {
-    printf("player 2 turn\n");
-  }
-  else{
-    printf("player 1 turn\n");
-  }
+void store_move(char player_sym,int move,char* board){
+  board[move]=player_sym;
 }

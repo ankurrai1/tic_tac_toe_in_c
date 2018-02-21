@@ -1,31 +1,44 @@
 #include <stdio.h> 
+#include <stdlib.h>
 #include "ttt_lib.h"
 
-void show_game_result(char);
-void show_winner(char);
+
+char get_player_sym(int index){ 
+  char players_symbol[]={'X','O'};
+  return players_symbol[index%2];
+}
+
+void announce_winner(char winner_sym){
+  printf("player with symbol %c won\n",winner_sym);
+}
+
+void announce_draw(){
+  printf("Match Draw !!!\n");
+}
+
+// main function is too large.
 
 int main(void){
-  char game_result;
-  printf(" Tic Tac Toe.\n");
-  game_result=get_game_result();
-  show_game_result(game_result);
-  disp_matrix();
+  char board[9];
+  int move;
+  init_board(board);
+  for (int index = 0; index < 9; index++) {
+    display_board(board);
+    int current_player_sym=get_player_sym(index);
+    move=get_move();
+    if (is_valid_move(move,board)) {
+      store_move(current_player_sym,move,board);
+      if (has_won(current_player_sym,board)) {
+        display_board(board);
+        announce_winner(current_player_sym);
+        return 0;
+      }
+      system("clear");
+    }else{
+      printf("invalid move try Again\n");
+      index--;
+    }
+  }
+  announce_draw();
   return 0;
 }
-
-void show_game_result(char game_result){
-  if (game_result=='D') {
-    printf("Match Draw !\n");
-  }else{
-    show_winner(game_result);
-  }
-}
-
-void show_winner(char winner_symbol){
-  if(winner_symbol=='O'){
-    printf("player 1 won!\n");
-  }else{
-    printf("player 2 won!!!!\n");
-  } 
-}
-

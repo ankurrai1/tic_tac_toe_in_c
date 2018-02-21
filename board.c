@@ -1,20 +1,16 @@
 #include "ttt_lib.h"
 #include <stdio.h>
 
-void init_matrix(void) { 
-  int i, j;
-  for(i=0; i<3; i++){
-    for(j=0; j<3; j++){
-      matrix[i][j] = ' ';
-    }
+void init_board(char* board) {
+  for(int i=1; i <= 9; i++){
+    board[i] = ' ';
   }
 } 
 
-void disp_matrix(void) {
-  int index;
-  for(index=0; index<3; index++) {
-    printf(" %c | %c | %c ",matrix[index][0], matrix[index][1], matrix[index][2]);
-    if(index!=2){
+void display_board(char* board) {
+  for(int index=1; index<=9; index+=3) {
+    printf(" %c | %c | %c ",board[index], board[index+1], board[index+2]);
+    if(index < 6){
       printf("\n---|---|---\n");
     }
   }
