@@ -2,17 +2,18 @@
 #include <stdio.h>
 
 void init_board(char* board) {
-  for(int i=1; i <= 9; i++){
+  for(int i=0; i < 9; i++){
     board[i] = ' ';
   }
 } 
 
 void display_board(char* board) {
-  for(int index=1; index<=9; index+=3) {
+  int index=3;
+  printf(" %c | %c | %c ",board[0], board[1], board[2]);
+  for(int counter=0; counter<2; counter++) {
+    printf("\n---|---|---\n");
     printf(" %c | %c | %c ",board[index], board[index+1], board[index+2]);
-    if(index < 6){
-      printf("\n---|---|---\n");
-    }
+    index+=3;
   }
   printf("\n");
 }

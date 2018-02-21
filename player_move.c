@@ -16,6 +16,6 @@ int is_valid_move(int move,char* board){
   return 0;
 }
 
-void store_move(char player_sym,int move,char* board){
-  board[move]=player_sym;
+void place_symbol_on_pos(char player_sym,int position,char* board){
+  board[position]=player_sym;
 }
