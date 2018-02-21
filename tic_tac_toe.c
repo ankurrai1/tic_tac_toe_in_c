@@ -16,8 +16,6 @@ void announce_draw(){
   printf("Match Draw !!!\n");
 }
 
-// main function is too large.
-
 int main(void){
   char board[9];
   int move;
